@@ -38,32 +38,10 @@ public class UsuarioDAO extends ConnectionFactory {
 	 * @return
 	 */
 	public ArrayList<Usuario> listarTodos() {
-		Connection conexao = null;
-		PreparedStatement pstmt = null;
-		ArrayList<Usuario> usuarios = null;
-
-		conexao = criarConexao();
-		usuarios = new ArrayList<Usuario>();
-
-
-		return usuarios;
-	}
-
-	public String Inserir(String usuario) {
-		Connection conexao = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-
-		conexao = criarConexao();
-
-		try {
-			pstmt = conexao.prepareStatement("Insert into Usuario values()" + usuario );
-			rs = pstmt.executeQuery();
-		} catch (Exception e) {
-
-		}
 		return null;
 	}
 
+	public String Inserir(String usuario) {
+		return null;
+	}
 }

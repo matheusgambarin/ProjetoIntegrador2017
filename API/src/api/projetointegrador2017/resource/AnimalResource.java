@@ -1,5 +1,4 @@
 package api.projetointegrador2017.resource;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;

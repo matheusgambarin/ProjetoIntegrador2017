@@ -1,17 +1,13 @@
 package api.projetointegrador2017.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
 
 import api.projetointegrador2017.factory.ConnectionFactory;
 import api.projetointegrador2017.model.Animal;
+import sun.net.www.content.text.plain;
 
 /**
  * Classe responsável por conter os metodos do CRUD
@@ -22,6 +18,7 @@ import api.projetointegrador2017.model.Animal;
 public class AnimalDAO extends ConnectionFactory {
 
 	private static AnimalDAO instance;
+	private EntityManager entityManager;
 
 	/**
 	 * Método responsavel por criar uma instancia
@@ -35,17 +32,6 @@ public class AnimalDAO extends ConnectionFactory {
 		return instance;
 	}
 
-	private EntityManager entityManager;
-
-	private EntityManager getEntityManager() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("ProjetoIntegrador");
-		if (entityManager == null) {
-			entityManager = factory.createEntityManager();
-		}
-
-		return entityManager;
-	}
-
 	/**
 	 * Metódo responsável por listar todos os animais
 	 * 
@@ -53,15 +39,12 @@ public class AnimalDAO extends ConnectionFactory {
 	 * @return
 	 */
 
-	@SuppressWarnings("unchecked")
 	public List<Animal> listarTodos() {
 		entityManager = getEntityManager();
-		
-		List<Animal> animais = entityManager.createQuery("FROM " + Animal.class.getName()).getResultList();
-		
+		@SuppressWarnings("unchecked")
+		List<Animal> animais = entityManager.createQuery("FROM " + Animal.class.getTypeName()).getResultList();
 		return animais;
-		
-		
+
 	}
 
 }
