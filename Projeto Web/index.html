@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html>
+<html ng-app="principalApp">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,6 +29,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="dist/js/principalApp.js"></script>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -54,7 +53,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" ng-controller="principalAppCTRL">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -80,7 +79,6 @@ desired effect
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
             <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
               <li>
                 <!-- inner menu: contains the messages -->
                 <ul class="menu">
@@ -90,20 +88,10 @@ desired effect
                         <!-- User Image -->
                         <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
-                      <!-- Message title and timestamp -->
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <!-- The message -->
-                      <p>Why not buy a new awesome theme?</p>
                     </a>
                   </li>
-                  <!-- end message -->
                 </ul>
-                <!-- /.menu -->
               </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
             </ul>
           </li>
           <!-- /.messages-menu -->
@@ -112,7 +100,7 @@ desired effect
           <li class="dropdown notifications-menu">
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="">Cadastre-se</span>
+              <span class=""><strong>Cadastre-se</strong></span>
             </a>
             <ul class="dropdown-menu">
               <li class="header" style="text-align: center;">Realize Seu Cadastro</li>
@@ -139,6 +127,7 @@ desired effect
 
                         <label for="digiteID">Digite a senha novamente:</label>
                         <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="digiteID">
+                        <input type="file" name="image" id="imagens">
                         <div class="buttons">
                           <button type="submit" class="btn btn-primary btn-block" id="botaoCadastrar">Cadastrar</button>
                         </div>
@@ -150,79 +139,62 @@ desired effect
             </ul>
           </li>
           <!-- Logar -->
-          <li class="dropdown tasks-menu">
+          <li class="dropdown notifications-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="">Logar</span>
+              <span class=""><strong>Logar</strong></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
+              <li class="header" style="text-align: center;">Faça seu login</li>
               <li>
-                <!-- Inner menu: contains the tasks -->
+                <!-- ONDE ESTÁ O FORMULÁRIO DE PREENCHIMENTO -->
                 <ul class="menu">
-                  <li><!-- Task item -->
+                  <li><!-- COMEÇO DO FORMULÁRIO -->
                     <a href="#">
-                      <!-- Task title and progress text -->
-                      <h3>
-                        Design some buttons
-                        <small class="pull-right">20%</small>
-                      </h3>
-                      <!-- The progress bar -->
-                      <div class="progress xs">
-                        <!-- Change the css width attribute to simulate progress -->
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
+                      <form class="formulario">
+                        <label for="e-mail">Insira seu e-mail:</label>
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                          <div class="input-group-addon">@</div>
+                          <input type="text" class="form-control" id="e-mail">
                         </div>
-                      </div>
+                        <label for="senhaID">Insira sua senha:</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="senhaID">
+                        <div class="buttons">
+                          <button type="submit" class="btn btn-primary btn-block" id="botaoCadastrar">Logar</button>
+                        </div>
+                      </form>
                     </a>
                   </li>
-                  <!-- end task item -->
                 </ul>
-              </li>
-              <li class="footer">
-                <a href="#">View all tasks</a>
               </li>
             </ul>
           </li>
           <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
+          <li class="dropdown notifications-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- MENU FALE CONOSCO-->
               <span class="hidden-xs">Fale Conosco</span>
             </a>
-            <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
-              <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
+             <ul class="dropdown-menu">
+              <li class="header" style="text-align: center;"><strong>Fale conosco</strong></li>
+              <li>
+                <!-- FALE CONOSCO -->
+                <ul class="menu">
+                  <li><!-- COMEÇO DO FORMULÁRIO -->
+                    <a href="#">
+                      <form class="formulario">
+                        <div class="form-group">
+                          <label for="comment">Envie sua duvida:</label>
+                          <textarea class="form-control" rows="5" id="comment"></textarea>
+                        </div> 
+                        <div class="buttons">
+                          <button type="submit" class="btn btn-primary btn-block" id="botaoCadastrar">Enviar dúvida</button>
+                        </div>
+                      </form>
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>
@@ -262,14 +234,14 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">MENU DO USUÁRIO</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><img src="dist/img/ícones e imagens/icones/icone 10.png" width="20" height="20"><span>Inicial</span></a></li>
-        <li><a href="#"><span>Adote um Animal</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Animais a Venda</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Achados & Perdidos</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Produtos a Venda</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Seus Anúncios</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Configurações do Usuário</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Logout</span></a></li>
+        <li class="active"><a href="#"><img src="dist/img/icones/inicio.png" width="25" height="25"><span> Inicial</span></a></li>
+        <li><a href="#"><img src="dist/img/icones/adote.png" width="25" height="25"><span> Adote um Animal</span></a></li>
+        <li><a href="#"><img src="dist/img/icones/vendas.png" width="25" height="25"><span> Animais a venda</span></a></li>
+        <li><a href="#"><img src="dist/img/icones/achados.png" width="25" height="25"><span> Achados & Perdidos</span></a></li>
+        <li><a href="#"><img src="dist/img/icones/produtos.png" width="25" height="25"><span> Produtos a venda</span></a></li>
+        <li><a href="#"><img src="dist/img/icones/sVendas.png" width="25" height="25"><span> Seus Anúncios</span></a></li>
+        <li><a href="#"><img src="dist/img/icones/configuracoes.png" width="25" height="25"><span> Configurações da conta</span></a></li>
+        <li><a href="#"><img src="dist/img/icones/sair.png" width="25" height="25"><span> Deslogar</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

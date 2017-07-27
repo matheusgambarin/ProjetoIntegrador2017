@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="telaAdocao">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<title>AdoteUmPet | Adote um animal</title>
+	<!-- Responsividade na tela -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- Boostrap -->
+	<link rel="stylesheet" src="../bootstrap/css/bootstrap.min.css">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="telaAdocao.css">
+	<!-- Plugins -->
+	<link rel="stylesheet" src="../plugins/iCheck/flat/blue.css">
+  	<!-- Morris chart -->
+ 	<link rel="stylesheet" src="../plugins/morris/morris.css">
+	<!-- jvectormap -->
+	<link rel="stylesheet" src="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+  	<!-- Date Picker -->
+	<link rel="stylesheet" src="../plugins/datepicker/datepicker3.css">
+  	<!-- Daterange picker -->
+	<link rel="stylesheet" src="../plugins/daterangepicker/daterangepicker.css">
+  	<!-- bootstrap wysihtml5 - text editor -->
+	<link rel="stylesheet" src="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+	<!-- Angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<!-- Modulos da página -->
+	<script src="appTelaAdocao.js"></script>
+	<script src="telaAdocaoController.js"></script>
+</head>
+<body ng-controller="telaAdocaoCTRL">
+	<div class="panel panel-default" id="conteinerAnimais">
+		<div class="panel-body">
+			<div class="titulosAnuncios">
+				<h1 ng-bind="tituloAnimais"></h1>
+				<hr class="horizontalPipe">
+				<div ng-repeat="venda in anuncioVendas" class="anunciosVendas">
+					<div class="panel panel-default">
+						<div class="panel-body">{{venda.foto}}</div>
+					</div>
+					<div class="panel panel-default">
+						<form class="form-group">
+							{{venda.nome}}
+							{{venda.cidade}} - 
+							{{venda.estado}}
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
