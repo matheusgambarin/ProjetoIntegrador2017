@@ -7,12 +7,12 @@ app.config(function($routeProvider, $locationProvider) {
 //         templateUrl : "index.html"
 //     })
     .when("/adocao", {
-        templateUrl : "view/adocao.html"
+        templateUrl : "view/adocao/adocao.html",
+        controller : "adoteCTRL"
     })
-//     .when("/achados", {
-//         templateUrl : "view/achados.html",
-//         controller :  "achadosCTRL"
-//     })
+    .when("/achados", {
+         templateUrl : "view/achados.html"
+    })
 //     .when("/vendas", {
 //         templateUrl : "view/vendas.htm.",
 //         controller :  "vendasCTRL"

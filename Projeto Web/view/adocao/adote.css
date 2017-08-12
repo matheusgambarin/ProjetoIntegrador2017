@@ -1,0 +1,12 @@
+#tituloAdocao{
+	font-style: italic;
+	font-weight: bold;
+	color: #3c8dbc;
+	font-size: 35px;
+}
+
+body {
+    padding-top: 54px;
+}
+
+

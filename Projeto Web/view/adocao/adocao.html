@@ -1,0 +1,50 @@
+<!-- CSS da página -->
+<link rel="stylesheet" type="text/css" href="view/adocao/adote.css">
+<!--Inicio do código -->
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+    		<h3 class="panel-title" id="tituloAdocao">Animais para adoção</h3>
+		  </div>
+		<div ng-repeat="adote in adoteView">
+			<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src={{adote.fotoUrl}} height="200" width="200" alt=""></a>
+                    <div class="card-body">
+						{{adote.nome}}
+						{{adote.cidade}} -
+						{{adote.estado}}
+                    </div>
+                </div>
+            </div>
+		</div>
+        	<div class="row text-center">
+            	<div class="col-lg-12">
+                	<ul class="pagination">
+                    	<li>
+                        	<a href="#">&laquo;</a>
+                    	</li>
+                    	<li class="active">
+                        	<a href="#">1</a>
+                    	</li>
+                    	<li>
+                        	<a href="#">2</a>
+                    	</li>
+                    	<li>
+                        	<a href="#">3</a>
+                    	</li>
+                    	<li>
+                        	<a href="#">4</a>
+                    	</li>
+                    	<li>
+                        	<a href="#">5</a>
+                    	</li>
+                    	<li>
+                        	<a href="#">&raquo;</a>
+                    	</li>
+                	</ul>
+            	</div>
+        	</div>
+		</div>
+	</div>
+</div>
