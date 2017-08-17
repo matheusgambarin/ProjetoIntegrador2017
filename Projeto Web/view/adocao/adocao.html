@@ -1,11 +1,12 @@
 <!-- CSS da página -->
 <link rel="stylesheet" type="text/css" href="view/adocao/adote.css">
 <!--Inicio do código -->
-<div class="container">
+<div class="container" id="conteinerPrincipal">
 	<div class="panel panel-default">
-		<div class="panel-heading">
-    		<h3 class="panel-title" id="tituloAdocao">Animais para adoção</h3>
-		  </div>
+		<div id="tituloAdocao">
+			<h3>Animais para adoção</h3>
+		</div>
+		<hr id="pipeTitulo">
 		<div ng-repeat="adote in adoteView">
 			<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                 <div class="card h-100">
