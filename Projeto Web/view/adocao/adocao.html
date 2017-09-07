@@ -1,0 +1,35 @@
+<!-- CSS da página -->
+<link rel="stylesheet" type="text/css" href="view/adocao/adote.css">
+<!--Inicio do código -->
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="panel-heading">
+			<div id="tituloAdocao">
+				<h3>Adote um animal</h3>
+			</div>
+				<hr id="pipeTitulo">
+				<div dir-paginate="adote in adoteView | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
+					<div class="col-md-3">
+						<div id="columnAlign">
+							<a href="#"><img class="card-img-top" src={{adote.fotoUrl}} height="200" width="200" alt=""></a>
+							<div class="card-body">
+                                <div class="col-md-4" style= "padding:0;">
+                                    {{adote.nome}}
+                                </div>
+								<div class="col-md-8">
+                                    {{adote.cidade}} - 
+								    {{adote.estado}}
+                                </div>   
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
