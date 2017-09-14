@@ -18,10 +18,10 @@ app.config(function($routeProvider, $locationProvider) {
          templateUrl : "view/vendas/vendas.html",
         controller :  "vendasCTRL"
     })
-//     .when("/produtos", {
-//         templateUrl : "view/produtos.html",
-//         controller :  "produtosCTRL"
-//     })
+    .when("/produtos", {
+        templateUrl : "view/produtos/produtos.html",
+        controller :  "produtosCTRL"
+    })
 //     .when("/anuncios", {
 //         templateUrl : "view/sAnuncios.html",
 //         controller :  "sAnunciosCTRL"
