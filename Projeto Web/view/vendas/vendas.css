@@ -1,0 +1,26 @@
+#tituloVendas{
+	font-style: italic;
+	font-weight: bold;
+	color: #3c8dbc;
+	padding: 10px 0px 0px 20px;
+}
+
+#tituloVendas h3{
+	font-size: 50px;
+	font-weight: bold;
+}
+
+#pipeTitulo{
+	height: 1.5px;
+	width: 95%;
+	margin: -10px 0px 5px 10px;
+	background-color: #3c8dbc;	
+}
+
+#columnAlign{
+    margin-top: 20px;
+}
+
+#portfoilAlign{
+    margin: 10px;
+}
