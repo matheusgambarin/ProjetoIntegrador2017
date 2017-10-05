@@ -1,11 +1,11 @@
-#tituloVendas{
+#tituloAdocao{
 	font-style: italic;
 	font-weight: bold;
 	color: #3c8dbc;
 	padding: 10px 0px 0px 20px;
 }
 
-#tituloVendas h3{
+#tituloAdocao h3{
 	font-size: 50px;
 	font-weight: bold;
 }
@@ -22,5 +22,25 @@
 }
 
 #portfoilAlign{
-    margin: 10px;
+	margin: 10px;
+}
+
+.headingCss{
+	background-color: #3c8dbc !important; 
+	color: #FFFFFF !important;
+}
+
+.imglogo{
+	height: 230px !important;
+	width: 230px !important;
+}
+
+.img-thumbnail:hover{
+	background-color: #3c8dbc !important;
+	cursor: pointer;
+}
+
+.wicked{
+	font-family: Wicked;
+	font-style: normal;
 }

@@ -1,5 +1,5 @@
 <!-- CSS da página -->
-<link rel="stylesheet" type="text/css" href="view/produtos/produtos.css">
+<link rel="stylesheet" type="text/css" href="view/sAnuncios/sAnuncios.css">
 <link rel="stylesheet" href="../plugins/jQuery/jquery-2.2.3.min.js">
 <link rel="stylesheet" href="../plugins/jQuery/jquery.mask.js">
 <!--Inicio do código -->
@@ -9,33 +9,25 @@
 			<div class="panel-heading headingCss">			
 				<h4 class="wicked">
 					<img src="../../dist/img/pata_de_felino.png" width="30px;" height="30px;"/>  
-				    Produtos a venda
+				    Seus Anuncios
 				</h4>
 			</div>
     	</div>
 		<div class="panel-body">
 			<div dir-paginate="produtos in produtosView | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
-				<div class="col-md-3">
-					<div id="columnAlign">
-						<img class="card-img-top img-thumbnail imglogo" src={{produtos.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdocao">
-						<div class="card-body">
-              <div class="col-md-4" style="padding-left: 4px; margin-top: 5px;">
-                {{produtos.nome}}
-              </div>
-							<div class="col-md-8" style="padding-left: 35px; Margin-top: 5px;">
-								{{produtos.loja}} 
-							</div>
-							<div class="row" style="padding-left: 3px;">
-									<div class="col-md-12">
-											{{produtos.preco | currency}} 
-											<div ng-show="!produtos.preco">
-														R$: 10,00
-											</div>
-									</div>
-								</div>
-						</div>
-					</div>
-				</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            {{nomeAnuncio}}
+                        </div>
+                        <div class="col-md-4">
+                            {{dataAnuncio}}
+                        </div>
+                        <div class="col-md-4">
+                            <p data-toggle="modal" data-target="#modalAdocao">Ver Mais</p>
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</div>
 		<div class="panel-footer">

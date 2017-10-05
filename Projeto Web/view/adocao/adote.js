@@ -57,5 +57,4 @@ app.controller("adoteCTRL", function($scope, $http){
 	}
 
 	carregaDados(); */
-
 })

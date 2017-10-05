@@ -22,14 +22,14 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl : "view/produtos/produtos.html",
         controller :  "produtosCTRL"
     })
-//     .when("/anuncios", {
-//         templateUrl : "view/sAnuncios.html",
-//         controller :  "sAnunciosCTRL"
-//     })
-//     .when("/configuracao", {
-//         templateUrl : "view/configuracao.html",
-//         controller :  "configuracaoCTRL"
-//     });
+    .when("/anuncios", {
+        templateUrl : "view/sAnuncios/sAnuncios.html",
+        controller :  "sAnunciosCTRL"
+    })
+    .when("/configuracao", {
+        templateUrl : "view/configuracao/configuracao.html",
+        controller :  "configuracaoCTRL"
+    });
 });
     // .controller("indexCTRL", function($scope){
 

@@ -1,7 +1,7 @@
 app.controller("vendasCTRL", function($scope, $http){
 	$scope.vendaView = [
-		{nome: "Cachorro", cidade: "Maringá", estado: "Paraná", fotoUrl: "http://placehold.it/750x500"},
-		{nome: "Cachorro", cidade: "Maringá", estado: "Paraná", fotoUrl: "http://placehold.it/750x500"},
+		{nome: "Cachorro", cidade: "Maringá", estado: "Paraná", fotoUrl: "http://placehold.it/750x500", preco: 150.00},
+		{nome: "Cachorro", cidade: "Maringá", estado: "Paraná", fotoUrl: "http://placehold.it/750x500", preco: 150.00},
 		{nome: "Cachorro", cidade: "Maringá", estado: "Paraná", fotoUrl: "http://placehold.it/750x500"},
 		{nome: "Cachorro", cidade: "Maringá", estado: "Paraná", fotoUrl: "http://placehold.it/750x500"},
 		{nome: "Cachorro", cidade: "Maringá", estado: "Paraná", fotoUrl: "http://placehold.it/750x500"},

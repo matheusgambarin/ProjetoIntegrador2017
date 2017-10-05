@@ -24,3 +24,23 @@
 #portfoilAlign{
     margin: 10px;
 }
+
+.headingCss{
+	background-color: #3c8dbc !important; 
+	color: #FFFFFF !important;
+}
+
+.imglogo{
+	height: 230px !important;
+	width: 230px !important;
+}
+
+.img-thumbnail:hover{
+	background-color: #3c8dbc !important;
+	cursor: pointer;
+}
+
+.wicked{
+	font-family: Wicked;
+	font-style: normal;
+}
