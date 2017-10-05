@@ -1,6 +1,5 @@
 var app = angular.module("AdoteUmPet", ["ngRoute", "angularUtils.directives.dirPagination"]);
 
-
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider
 //     .when("/", {
