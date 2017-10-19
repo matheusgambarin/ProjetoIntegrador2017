@@ -30,24 +30,4 @@ app.config(function($routeProvider, $locationProvider) {
         controller :  "configuracaoCTRL"
     });
 });
-    // .controller("indexCTRL", function($scope){
-
-    // })
-    // .controller("adocaoCTRL", function($scope){
-
-    // })
-    // .controller("achadosCTRL", function($scope){
-
-    // })
-    // .controller("vendasCTRL", function($scope){
-
-    // })
-    // .controller("produtosCTRL", function($scope){
-
-    // })
-    // .controller("anunciosCTRL", function($scope){
-
-    // })
-    // .controller("configuracaoCTRL", function($scope){
-
-    // })
+ 

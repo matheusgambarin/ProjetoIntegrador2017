@@ -1,0 +1,28 @@
+<link rel="stylesheet" type="text/css" href="view/configuracao/configuracao.css">
+<link rel="stylesheet" href="../plugins/jQuery/jquery-2.2.3.min.js">
+<link rel="stylesheet" href="../plugins/jQuery/jquery.mask.js">
+<!--Inicio do código -->
+<div class="container">
+    <div class="panel panel-default">
+        <div class="min-height-0 panel-default">
+            <div class="panel-heading headingCss">
+                <h4 class="wicked">
+                    <img src="../../dist/img/pata_de_felino.png" width="30px;" height="30px;" /> Sua Conta
+                </h4>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form>
+                <center><img src="{{configuracaoView.fotoUrl}}" class="imglogo img-thumbnail" />
+                <br>
+                <input type="text" name="nome" >
+                </center>
+            </form>
+        </div>
+        <div class="panel-footer">
+            <div class="row text-center">
+                <dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
