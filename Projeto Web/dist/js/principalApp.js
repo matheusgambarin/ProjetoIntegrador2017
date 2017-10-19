@@ -1,4 +1,21 @@
 var app = angular.module("AdoteUmPet", ["ngRoute", "angularUtils.directives.dirPagination"]);
+app.controller("AdoteUmPetCTRL", function($scope){
+        $scope.criarCadastro = function(user){
+                console.log(user);
+        }
+
+        $scope.logar = function(login){
+                console.log(login);
+        }
+
+
+
+
+
+
+
+
+})
 
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider

@@ -42,7 +42,7 @@
   <script src="view/configuracao/configuracao.js"></script>
   <script src="view/sAnuncios/sAnuncios.js"></script>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" ng-controller="AdoteUmPetCTRL">
 
 <div class="wrapper">
 
@@ -99,26 +99,45 @@
                 <ul class="menu">
                   <li><!-- COMEÇO DO FORMULÁRIO -->
                     <a href="#">
-                      <form class="formulario">
-                        <label for="nomeUsuario">Nome:</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="nomeUsuario">
+                      <form class="formulario" name="cadastroForm">
+                        <label for="nomeUsuario">
+                          Nome:
+                          <span style="color: red;">*</span>
+                        </label>
+                        <input type="text" ng-model="user.nome" class="form-control mb-2 mr-sm-2 mb-sm-0" required id="nomeUsuario" required>
 
-                        <label for="e-mail">E-mail:</label>
+                        <label for="e-mail">
+                          E-mail:
+                          <span style="color: red;">*</span>
+                        </label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                           <div class="input-group-addon">@</div>
-                          <input type="text" class="form-control" id="e-mail">
+                          <input type="text" ng-model="user.email" class="form-control" required id="e-mail">
                         </div>
 
-                        <label for="telefoneId">Telefone:</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="telefoneId">
+                        <label for="telefoneId">
+                          Telefone:
+                          <span style="color: red;">*</span>
+                        </label>
+                        <input type="text" ng-model="user.telefone" class="form-control mb-2 mr-sm-2 mb-sm-0" required id="telefoneId">
 
-                        <label for="senhaID">Senha:</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="senhaID">
-
-                        <label for="digiteID">Digite a senha novamente:</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="digiteID">
+                        <label for="senhaID">
+                          Senha:
+                          <span style="color: red;">*</span>
+                        </label>
+                        <input type="password" ng-model="user.senha" class="form-control mb-2 mr-sm-2 mb-sm-0" required id="senhaID">
+                        <div ng-show="user.senha != user.senhaNovamente">
+                          <span style="color: red;">
+                            As senhas são diferentes
+                          </span>
+                        </div>
+                        <label for="digiteID">
+                          Digite a senha novamente:
+                          <span style="color: red;">*</span>
+                        </label>
+                        <input type="password" ng-model="user.senhaNovamente" class="form-control mb-2 mr-sm-2 mb-sm-0" required id="digiteID">
                         <div class="buttons">
-                          <button type="submit" class="btn btn-primary btn-block" id="botaoCadastrar">Cadastrar</button>
+                          <button type="submit" ng-disabled="cadastroForm.$invalid || user.senha != user.senhaNovamente"  ng-click="criarCadastro(user)" class="btn btn-primary btn-block" id="botaoCadastrar">Cadastrar</button>
                         </div>
                       </form>
                     </a>
@@ -140,16 +159,16 @@
                 <ul class="menu">
                   <li><!-- COMEÇO DO FORMULÁRIO -->
                     <a href="#">
-                      <form class="formulario">
+                      <form class="formulario" name="loginForm">
                         <label for="e-mail">Insira seu e-mail:</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                           <div class="input-group-addon">@</div>
-                          <input type="text" class="form-control" id="e-mail">
+                          <input type="text" required ng-model="login.email" class="form-control" id="e-mail">
                         </div>
                         <label for="senhaID">Insira sua senha:</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="senhaID">
+                        <input type="text" required ng-model="login.senha" class="form-control mb-2 mr-sm-2 mb-sm-0" id="senhaID">
                         <div class="buttons">
-                          <button type="submit" class="btn btn-primary btn-block" id="botaoCadastrar">Logar</button>
+                          <button type="submit" ng-disabled="loginForm.$invalid" ng-click="logar(login)" class="btn btn-primary btn-block" id="botaoCadastrar">Logar</button>
                         </div>
                       </form>
                     </a>
