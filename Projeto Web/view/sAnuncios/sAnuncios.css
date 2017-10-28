@@ -43,6 +43,7 @@
 .wicked{
 	font-family: Wicked;
 	font-style: normal;
+	max-width: 400px;
 }
 
 hr {
@@ -53,4 +54,13 @@ hr {
     margin: 1em 0;
     padding: 0;
     opacity: 0.4; 
+}
+
+.roundedBar{
+	border-radius: 15px 0px 0px 15px !important;
+	border-color: #d2d6de !important;
+}
+
+.glyphicon{
+	line-height: 1.1;
 }

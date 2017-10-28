@@ -44,3 +44,16 @@
 	font-family: Wicked;
 	font-style: normal;
 }
+
+.roundedBar{
+	border-radius: 15px 0px 0px 15px !important;
+	border-color: #d2d6de !important;
+}
+
+.glyphicon{
+	line-height: 1.1;
+}
+
+.mfb-component__button--main, .mfb-component__button--child{
+	background-color: #3c8dbc !important;
+}

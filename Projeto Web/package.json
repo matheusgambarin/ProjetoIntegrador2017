@@ -1,5 +1,5 @@
 {
-  "name": "Adote um pet",
+  "name": "AdoteUmPet",
   "version": "1.0.0",
   "main": "dist/js/app.min.js",
   "repository": {
@@ -23,6 +23,8 @@
     "grunt-includes": "^0.4.5"
   },
   "dependencies": {
-    "angular-route": "^1.6.5"
+    "angular-route": "^1.6.6",
+    "font-awesome": "^4.7.0",
+    "ng-material-floating-button": "^0.6.2"
   }
 }
