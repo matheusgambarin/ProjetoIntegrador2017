@@ -1,0 +1,59 @@
+#tituloAdocao{
+	font-style: italic;
+	font-weight: bold;
+	color: #3c8dbc;
+	padding: 10px 0px 0px 20px;
+}
+
+#tituloAdocao h3{
+	font-size: 50px;
+	font-weight: bold;
+}
+
+#pipeTitulo{
+	height: 1.5px;
+	width: 95%;
+	margin: -10px 0px 5px 10px;
+	background-color: #3c8dbc;	
+}
+
+#columnAlign{
+    margin-top: 20px;
+}
+
+#portfoilAlign{
+    margin: 10px;
+}
+
+.headingCss{
+	background-color: #3c8dbc !important; 
+	color: #FFFFFF !important;
+}
+
+.imglogo{
+	height: 230px !important;
+	width: 230px !important;
+}
+
+.img-thumbnail:hover{
+	background-color: #3c8dbc !important;
+	cursor: pointer;
+}
+
+.wicked{
+	font-family: Wicked;
+	font-style: normal;
+}
+
+.roundedBar{
+	border-radius: 15px 0px 0px 15px !important;
+	border-color: #d2d6de !important;
+}
+
+.glyphicon{
+	line-height: 1.1;
+}
+
+.mfb-component__button--main, .mfb-component__button--child{
+	background-color: #3c8dbc !important;
+}
