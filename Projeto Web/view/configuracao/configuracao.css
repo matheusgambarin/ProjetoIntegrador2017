@@ -44,4 +44,14 @@
 	font-family: Wicked;
 	font-style: normal;
 }
+
+.footerUsuario{
+	float: right;
+	margin-right: 10px;
+}
+
+.imgUsuario{
+	height: 350px !important;
+	width: 350px !important;
+}
     
