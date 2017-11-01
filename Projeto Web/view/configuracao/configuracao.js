@@ -3,7 +3,7 @@ app.controller("configuracaoCTRL", function ($scope, $http) {
     $scope.destravaSenha = false;
     $scope.label = "Mudar a senha";
     $scope.configuracaoView = {
-        nome: "Finin", email: "finin@gmail.com", telefone: "44999857452", senha: "123456qwe", fotoUrl: "http://placehold.it/350x350"
+        nome: "Finin", email: "finin@gmail.com", telefone: "44999857452", senha: "123456qwe", rua:"Das lamentações", numero: 661, complemento: "A", cidade: "Maringá" , estado: "Paraná" ,fotoUrl: "http://placehold.it/350x350"
     }
 
     $scope.senha = $scope.configuracaoView.senha;
