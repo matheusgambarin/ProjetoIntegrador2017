@@ -12,16 +12,112 @@
             </div>
         </div>
         <div class="panel-body">
-            <form>
-                <center><img src="{{configuracaoView.fotoUrl}}" class="imglogo img-thumbnail" />
-                <br>
-                <input type="text" name="nome" >
-                </center>
-            </form>
+            <div class="row">
+                <form name="usuarioForm">
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <img class="card-img-top img-thumbnail imgUsuario" ng-src="{{configuracaoView.fotoUrl}}" alt="Foto do usuário">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo</label>
+                                <input type="text" ng-model="configuracaoView.nome" required class="form-control" placeholder="Nome completo" id="nome" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="text" ng-model="configuracaoView.email" disabled required class="form-control" placeholder="Seu e-mail" id="email"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone contato</label>
+                                <input type="text" ng-model="configuracaoView.telefone" required mask="(44) 9?9999-9999" class="form-control" placeholder="Telefone para contato"
+                                    id="telefone" />
+                            </div>
+                            <div class="form-group">
+                                <label for="senha">Senha</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" required ng-disabled="destravaSenha == false" ng-model="senha" placeholder="Insira sua senha">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" type="button" ng-class="destravaSenha == true ? 'btn-danger': 'btn-success'" ng-click="mudarSenha()">{{label}}</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-hide="destravaSenha == false">
+                                <label for="telefone">Digite a senha novamente</label>
+                                <input type="password" class="form-control" ng-model="novamente" placeholder="Insira sua senha">
+                            </div>
+                            <div class="alert alert-danger" ng-show="destravaSenha == true && (senha != novamente)">
+                                <p>As senhas devem ser iguais</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="rua">Rua</label>
+                                    <input type="text" ng-model="configuracaoView.rua" required class="form-control" placeholder="Nome da rua que você mora"
+                                        id="rua" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="numero">Número</label>
+                                    <input type="numero" ng-model="configuracaoView.numero" required class="form-control" placeholder="Número da sua residência"
+                                        id="numero" />
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="complemento">Complemento</label>
+                                    <input type="text" ng-model="configuracaoView.numero" class="form-control" placeholder="Complemento" id="numero" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="cidade">Cidade</label>
+                                    <input type="text" ng-model="configuracaoView.cidade" required class="form-control" placeholder="Cidade que você mora" id="cidade"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="estado">Estado</label>
+                                    <input type="text" ng-model="configuracaoView.estado" required class="form-control" placeholder="Estado que fica sua cidade"
+                                        id="estado" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
+        <!-- Criar função salvar anúncio -->
         <div class="panel-footer">
-            <div class="row text-center">
-                <dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" ng-disabled="usuarioForm.$invalid || (destravaSenha == true && senha != novamente)"
+                    data-toggle="modal" data-target="#modalAlterar" ng-click="alterarDadosPessoais()">Salvar alterações</button>
+                <button type="button" class="btn btn-danger">Voltar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalAlterar" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Conteudo do modal-->
+        <div class="modal-content">
+            <div class="modal-header headingCss" style="padding-bottom: 5px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <p class="wicked">
+                    <img src="../../dist/img/pata_de_felino.png" width="20px;" height="20px;" /> Dados alterados
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <center>
+                        <h3>Dados Alterados com sucesso</h3>
+                    </center>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Voltar</button>
             </div>
         </div>
     </div>
