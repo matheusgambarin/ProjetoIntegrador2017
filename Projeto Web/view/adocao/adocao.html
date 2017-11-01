@@ -3,7 +3,8 @@
 <link rel="stylesheet" href="../plugins/jQuery/jquery-2.2.3.min.js">
 <link rel="stylesheet" href="../plugins/jQuery/jquery.mask.js">
 <!--Inicio do código -->
-<div class="container">
+<div class="container" ng-init="init()">
+	<div class="row">
 	<div class="panel panel-default">
 		<div class="min-height-0 panel-default">
 			<div class="panel-heading headingCss">
@@ -28,7 +29,7 @@
 			</div>
 		</div>
 		<div class="panel-body">
-			<div dir-paginate="adote in adoteView | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
+			<div dir-paginate="adote in animaisAdocao | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
 				<div class="col-md-3">
 					<div id="columnAlign">
 						<img class="card-img-top img-thumbnail imglogo" src={{adote.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdocao">
@@ -49,6 +50,7 @@
 		<div class="row text-center">
 			<dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
 		</div>
+	</div>
 	</div>
 </div>
 
