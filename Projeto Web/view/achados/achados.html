@@ -4,51 +4,49 @@
 <link rel="stylesheet" href="../plugins/jQuery/jquery.mask.js">
 <!--Inicio do código -->
 <div class="container">
-	<div class="row">
-		<div class="panel panel-default">
-			<div class="min-height-0 panel-default">
-				<div class="panel-heading headingCss">
-					<div class="row">
-						<div class="col-md-8">
-							<h4 class="wicked">
-								<img src="../../dist/img/pata_de_felino.png" width="30px;" height="30px;" /> Achados e Perdidos
-							</h4>
+	<div class="panel panel-default">
+		<div class="min-height-0 panel-default">
+			<div class="panel-heading headingCss">
+				<div class="row">
+					<div class="col-md-8">
+						<h4 class="wicked">
+							<img src="../../dist/img/pata_de_felino.png" width="30px;" height="30px;" /> Achados e Perdidos
+						</h4>
+					</div>
+					<div class="col-md-4">
+						<div class="input-group" style="margin-top: 10px;">
+							<input type="text" class="form-control roundedBar" ng-model="busca" placeholder="Busque seu anúncio aqui...">
+							<span class="input-group-btn">
+								<button class="btn btn-success" type="button">
+									<span class="glyphicon glyphicon-search"></span>
+									Buscar
+								</button>
+							</span>
 						</div>
-						<div class="col-md-4">
-							<div class="input-group" style="margin-top: 10px;">
-								<input type="text" class="form-control roundedBar" ng-model="busca" placeholder="Busque seu anúncio aqui...">
-								<span class="input-group-btn">
-									<button class="btn btn-success" type="button">
-										<span class="glyphicon glyphicon-search"></span>
-										Buscar
-									</button>
-								</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div dir-paginate="achados in achadosView | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
+				<div class="col-md-3">
+					<div id="columnAlign">
+						<img class="card-img-top img-thumbnail imglogo" src={{achados.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdocao">
+						<div class="row">
+							<div class="col-md-5" style="Margin-top: 5px;">
+								{{achados.nome}}
+							</div>
+							<div class="col-md-7" style="Margin-top: 5px;">
+								{{achados.cidade}} - {{achados.estado}}
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="panel-body">
-				<div dir-paginate="achados in achadosView | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
-					<div class="col-md-3">
-						<div id="columnAlign" class="col-md-12">
-							<img class="card-img-top img-thumbnail imglogo" src={{achados.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdocao">
-							<div class="row">
-								<div class="col-md-5" style="Margin-top: 5px;">
-									{{achados.nome}}
-								</div>
-								<div class="col-md-7" style="Margin-top: 5px;">
-									{{achados.cidade}} - {{achados.estado}}
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="panel-footer">
-				<div class="row text-center">
-					<dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
-				</div>
+		</div>
+		<div class="panel-footer">
+			<div class="row text-center">
+				<dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
 			</div>
 		</div>
 	</div>
@@ -86,7 +84,7 @@
 							</div>
 							<div class="form-group">
 								<label for="telefone">Telefone contato</label>
-								<input type="text" class="form-control" placeholder="Telefone para contato" id="telefone" />
+								<input type="text" class="form-control" mask="(44) 9 9999-9999" placeholder="Telefone para contato" id="telefone" />
 							</div>
 							<div class="form-group">
 								<label for="email">E-mail</label>
@@ -103,85 +101,84 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-success" data-dismiss="modal">Voltar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
 			</div>
 		</div>
 	</div>
 </div>
 
 <!--Flout Button -->
-<nav mfb-menu position="br" class="btnFloat" effect="zoomin" label="Opções" active-icon="ion-paper-airplane" resting-icon="ion-plus-round"
- toggling-method="click">
-	<button mfb-button icon="ion-edit" label="Anunciar achados e perdidos" data-toggle="modal" data-target="#modalAdicionar"></button>
-</nav>
+<nav mfb-menu position="br" class="btnFloat" effect="zoomin" label="Adicionar anúncio de achados e perdidos" active-icon="ion-paper-airplane"
+ resting-icon="ion-plus-round" toggling-method="click" data-toggle="modal" data-target="#modalAdicionar"></nav>
 
 <!-- Modal adicionar adocao -->
 <div id="modalAdicionar" class="modal fade" role="dialog">
-		<div class="modal-dialog modal-lg">
-			<!-- Conteudo do modal-->
-			<div class="modal-content">
-				<div class="modal-header headingCss" style="padding-bottom: 5px;">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<p class="wicked">
-						<img src="../../dist/img/pata_de_felino.png" width="20px;" height="20px;" /> Detalhes do animal
-					</p>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<form name="achadoForm">
-							<div class="col-md-12">
-								<div class="col-md-5">
-									<!-- Required -->
-									<img class="card-img-top img-thumbnail imgModal" ng-src="{{photoUrl}}" ng-model="achado.Image" alt="">
-									<input type="file" accept="image/*" class="form-control" ng-model="achado.fotoUrl"/>
-	
+	<div class="modal-dialog modal-lg">
+		<!-- Conteudo do modal-->
+		<div class="modal-content">
+			<div class="modal-header headingCss" style="padding-bottom: 5px;">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<p class="wicked">
+					<img src="../../dist/img/pata_de_felino.png" width="20px;" height="20px;" /> Detalhes do animal
+				</p>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<form name="achadoForm">
+						<div class="col-md-12">
+							<div class="col-md-5">
+								<!-- Required -->
+								<img class="card-img-top img-thumbnail imgModal" ng-src="{{photoUrl}}" ng-model="achado.Image" alt="">
+								<input type="file" accept="image/*" class="form-control" ng-model="achado.fotoUrl" />
+
+							</div>
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="nomeAnimal">Nome do animal</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="achado.nome" required class="form-control" placeholder="Nome do animal" id="nomeAnimal" />
 								</div>
-								<div class="col-md-7">
-									<div class="form-group">
-										<label for="nomeAnimal">Nome do animal</label>
-										<span style="color:red">*</span>
-										<input type="text"  ng-model="achado.nome" required class="form-control" placeholder="Nome do animal" id="nomeAnimal" />
-									</div>
-									<div class="form-group">
-										<label for="raca">Raça</label>
-										<span style="color:red">*</span>
-										<input type="text" ng-model="achado.raca" required class="form-control" placeholder="Raça" id="raca" />
-									</div>
-									<div class="form-group">
-										<label for="sexo">Sexo</label>
-										<span style="color:red">*</span>
-										<select ng-model="achado.sexo" required class="form-control">
-											<option value="" selected>Selecione o sexo do animal</option>
-											<option value="Macho">Macho</option>
-											<option value="Fêmea">Fêmea</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<label for="telefone">Telefone contato</label>
-										<span style="color:red">*</span>
-										<input type="text" ng-model="achado.telefone" required class="form-control" placeholder="Telefone para contato" id="telefone" />
-									</div>
-									<div class="form-group">
-										<label for="email">E-mail</label>
-										<span style="color:red">*</span>
-										<input type="text" ng-model="achado.email" class="form-control" 
-										placeholder="Nome do animal" id="email" required ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'/>
-									</div>
+								<div class="form-group">
+									<label for="raca">Raça</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="achado.raca" required class="form-control" placeholder="Raça" id="raca" />
+								</div>
+								<div class="form-group">
+									<label for="sexo">Sexo</label>
+									<span style="color:red">*</span>
+									<select ng-model="achado.sexo" required class="form-control">
+										<option value="" selected>Selecione o sexo do animal</option>
+										<option value="Macho">Macho</option>
+										<option value="Fêmea">Fêmea</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="telefone">Telefone contato</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="achado.telefone" required mask="(44) 9 9999-9999" class="form-control" placeholder="Telefone para contato"
+									 id="telefone" />
+								</div>
+								<div class="form-group">
+									<label for="email">E-mail</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="achado.email" class="form-control" placeholder="Nome do animal" id="email" required ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'
+									/>
 								</div>
 							</div>
+						</div>
+						<div class="col-md-12">
 							<div class="col-md-12">
-								<div class="col-md-12">
-									<label for="comentarios">Comentários adicionais</label>
-									<textarea  ng-model="achado.comentario" class="form-control" rows="5" id="comentarios"></textarea>
-								</div>
+								<label for="comentarios">Comentários adicionais</label>
+								<textarea ng-model="achado.comentario" class="form-control" rows="5" id="comentarios"></textarea>
 							</div>
-						</form>
-					</div>
+						</div>
+					</form>
 				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-success" ng-disabled="achadoForm.$invalid" ng-click="salvarAnuncio(achado)">Criar anúncio</button>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Voltar</button>
-				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-success" ng-disabled="achadoForm.$invalid" ng-click="salvarAnuncio(achado)">Criar anúncio</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
 			</div>
 		</div>
 	</div>
+</div>

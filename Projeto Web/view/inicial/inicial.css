@@ -1,11 +1,11 @@
-#tituloAdocao{
+#tituloInicial{
 	font-style: italic;
 	font-weight: bold;
 	color: #3c8dbc;
 	padding: 10px 0px 0px 20px;
 }
 
-#tituloAdocao h3{
+#tituloInicial h3{
 	font-size: 50px;
 	font-weight: bold;
 }
@@ -31,8 +31,8 @@
 }
 
 .imglogo{
-	height: 300px !important;
-	width: 300px !important;
+	height: 230px !important;
+	width: 230px !important;
 }
 
 .img-thumbnail:hover{
@@ -45,13 +45,15 @@
 	font-style: normal;
 }
 
-.footerUsuario{
-	float: right;
-	margin-right: 10px;
+.roundedBar{
+	border-radius: 15px 0px 0px 15px !important;
+	border-color: #d2d6de !important;
 }
 
-.imgUsuario{
-	height: 350px !important;
-	width: 350px !important;
+.glyphicon{
+	line-height: 1.1;
 }
-    
+
+.mfb-component__button--main, .mfb-component__button--child{
+	background-color: #3c8dbc !important;
+}

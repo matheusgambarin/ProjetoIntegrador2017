@@ -80,54 +80,51 @@
 							<img class="card-img-top img-thumbnail imgModal" src="http://placehold.it/900x900" alt="">
 						</div>
 						<div class="col-md-7">
-								<div class="form-group">
-									<label for="nomeAnimal">Nome do produto</label>
-									<input type="text" ng-model="produto.nome"  class="form-control" placeholder="Nome do produto" id="nomeAnimal" />
-								</div>
-								<div class="form-group">
-									<label for="preco">Preço do produto</label>
-									<input type="number" ng-model="produto.preco"  class="form-control" placeholder="Preço do produto" id="preco" />
-								</div>
-								<div class="form-group">
-									<label for="endereco">Endereço</label>
-									<input type="text" ng-model="produto.endereco" class="form-control"  placeholder="Endereço do estabelecimento" id="endereco"
-									/>
-								</div>
-								<div class="form-group">
-									<label for="cidade">Cidade</label>
-									<input type="text" ng-model="produto.cidade" class="form-control"  placeholder="Cidade" id="cidade" />
-								</div>
-								<div class="form-group">
-									<label for="estado">Estado</label>
-									<input type="text" ng-model="produto.estado" class="form-control"  placeholder="Estado" id="estado" />
-								</div>
-								<div class="form-group">
-									<label for="telefone">Telefone contato</label>
-									<input type="text" ng-model="produto.telefone"  class="form-control" placeholder="Telefone para contato" id="telefone"
-									/>
-								</div>
+							<div class="form-group">
+								<label for="nomeAnimal">Nome do produto</label>
+								<input type="text" ng-model="produto.nome" class="form-control" placeholder="Nome do produto" id="nomeAnimal" />
 							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="col-md-12">
-								<label for="comentarios">Como usar</label>
-								<textarea ng-model="produto.comentario" class="form-control" rows="5" id="comentarios"></textarea>
+							<div class="form-group">
+								<label for="preco">Preço do produto</label>
+								<input type="number" ng-model="produto.preco" class="form-control" placeholder="Preço do produto" id="preco" />
+							</div>
+							<div class="form-group">
+								<label for="endereco">Endereço</label>
+								<input type="text" ng-model="produto.endereco" class="form-control" placeholder="Endereço do estabelecimento" id="endereco"
+								/>
+							</div>
+							<div class="form-group">
+								<label for="cidade">Cidade</label>
+								<input type="text" ng-model="produto.cidade" class="form-control" placeholder="Cidade" id="cidade" />
+							</div>
+							<div class="form-group">
+								<label for="estado">Estado</label>
+								<input type="text" ng-model="produto.estado" class="form-control" placeholder="Estado" id="estado" />
+							</div>
+							<div class="form-group">
+								<label for="telefone">Telefone contato</label>
+								<input type="text" ng-model="produto.telefone" class="form-control" mask="(44) 9 9999-9999" placeholder="Telefone para contato" id="telefone" />
 							</div>
 						</div>
 					</div>
+					<div class="col-md-12">
+						<div class="col-md-12">
+							<label for="comentarios">Como usar</label>
+							<textarea ng-model="produto.comentario" class="form-control" rows="5" id="comentarios"></textarea>
+						</div>
+					</div>
 				</div>
-				<div class="modal-footer" style="margin-top: 10px;">
-					<button type="button" class="btn btn-success" data-dismiss="modal">Voltar</button>
-				</div>
+			</div>
+			<div class="modal-footer" style="margin-top: 10px;">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
 			</div>
 		</div>
 	</div>
 </div>
-<!--Flout Button -->
-<nav mfb-menu position="br" class="btnFloat" effect="zoomin" label="Opções" active-icon="ion-paper-airplane" resting-icon="ion-plus-round"
- toggling-method="click">
-	<button mfb-button icon="ion-edit" label="Anunciar produtos a venda" data-toggle="modal" data-target="#modalAdicionar"></button>
-</nav>
+</div>
+
+<nav mfb-menu position="br" class="btnFloat" effect="zoomin" label="Adicionar produtos" active-icon="ion-paper-airplane"
+ resting-icon="ion-plus-round" toggling-method="click" data-toggle="modal" data-target="#modalAdicionar"></nav>
 
 <!-- Modal adicionar produtos -->
 <div id="modalAdicionar" class="modal fade" role="dialog">
@@ -180,7 +177,7 @@
 								<div class="form-group">
 									<label for="telefone">Telefone contato</label>
 									<span style="color:red">*</span>
-									<input type="text" ng-model="produto.telefone" required class="form-control" placeholder="Telefone para contato" id="telefone"
+									<input type="text" ng-model="produto.telefone" required mask="(44) 9 9999-9999" class="form-control" placeholder="Telefone para contato" id="telefone"
 									/>
 								</div>
 							</div>
@@ -196,7 +193,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="submit" class="btn btn-success" ng-disabled="ProdutosForm.$invalid" ng-click="salvarAnuncio(produto)">Criar anúncio</button>
-				<button type="button" class="btn btn-danger" data-dismiss="modal">Voltar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
 			</div>
 		</div>
 	</div>
