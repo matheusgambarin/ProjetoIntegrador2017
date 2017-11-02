@@ -1,4 +1,4 @@
-var app = angular.module("AdoteUmPet", ["ngRoute", "angularUtils.directives.dirPagination", "ng-mfb", "ngMask"]);
+var app = angular.module("AdoteUmPet", ["ngRoute", "angularUtils.directives.dirPagination", "ng-mfb"]);
 app.controller("AdoteUmPetCTRL", function($scope){
         $scope.criarCadastro = function(user){
                 console.log(user);
@@ -11,9 +11,10 @@ app.controller("AdoteUmPetCTRL", function($scope){
 
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider
-//     .when("/", {
-//         templateUrl : "index.html"
-//     })
+    .when("/", {
+        templateUrl : "view/inicial/inicial.html",
+        controller: "inicialCTRL"
+    })
     .when("/adocao", {
         templateUrl : "view/adocao/adocao.html",
         controller : "adoteCTRL"
