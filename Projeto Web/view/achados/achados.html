@@ -1,7 +1,5 @@
 <!-- CSS da página -->
 <link rel="stylesheet" type="text/css" href="view/achados/achados.css">
-<link rel="stylesheet" href="../plugins/jQuery/jquery-2.2.3.min.js">
-<link rel="stylesheet" href="../plugins/jQuery/jquery.mask.js">
 <!--Inicio do código -->
 <div class="container">
 	<div class="panel panel-default">
@@ -31,7 +29,7 @@
 			<div dir-paginate="achados in achadosView | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
 				<div class="col-md-3">
 					<div id="columnAlign">
-						<img class="card-img-top img-thumbnail imglogo" src={{achados.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdocao">
+						<img class="card-img-top img-thumbnail imglogo" ng-src={{achados.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdicionar">
 						<div class="row">
 							<div class="col-md-5" style="Margin-top: 5px;">
 								{{achados.nome}}
@@ -47,61 +45,6 @@
 		<div class="panel-footer">
 			<div class="row text-center">
 				<dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- Modal adocao -->
-<div id="modalAdocao" class="modal fade" role="dialog">
-	<div class="modal-dialog modal-lg">
-		<!-- Conteudo do modal-->
-		<div class="modal-content">
-			<div class="modal-header headingCss" style="padding-bottom: 5px;">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<p class="wicked">
-					<img src="../../dist/img/pata_de_felino.png" width="20px;" height="20px;" /> Detalhes do animal
-				</p>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="col-md-5">
-							<img class="card-img-top img-thumbnail imgModal" src="http://placehold.it/900x900" alt="">
-						</div>
-						<div class="col-md-7">
-							<div class="form-group">
-								<label for="nomeAnimal">Nome do animal</label>
-								<input type="text" class="form-control" placeholder="Nome do animal" id="nomeAnimal" />
-							</div>
-							<div class="form-group">
-								<label for="raca">Raça</label>
-								<input type="text" class="form-control" placeholder="Raça" id="raca" />
-							</div>
-							<div class="form-group">
-								<label for="sexo">Sexo</label>
-								<input type="text" class="form-control" placeholder="Sexo" id="sexo" />
-							</div>
-							<div class="form-group">
-								<label for="telefone">Telefone contato</label>
-								<input type="text" class="form-control" mask="(44) 9 9999-9999" placeholder="Telefone para contato" id="telefone" />
-							</div>
-							<div class="form-group">
-								<label for="email">E-mail</label>
-								<input type="text" class="form-control" placeholder="Nome do animal" id="email" />
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="col-md-12">
-							<label for="comentarios">Comentários adicionais</label>
-							<textarea class="form-control" rows="5" id="comentarios"></textarea>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-success" data-dismiss="modal">Voltar</button>
 			</div>
 		</div>
 	</div>
@@ -151,18 +94,6 @@
 										<option value="Macho">Macho</option>
 										<option value="Fêmea">Fêmea</option>
 									</select>
-								</div>
-								<div class="form-group">
-									<label for="telefone">Telefone contato</label>
-									<span style="color:red">*</span>
-									<input type="text" ng-model="achado.telefone" required mask="(44) 9 9999-9999" class="form-control" placeholder="Telefone para contato"
-									 id="telefone" />
-								</div>
-								<div class="form-group">
-									<label for="email">E-mail</label>
-									<span style="color:red">*</span>
-									<input type="text" ng-model="achado.email" class="form-control" placeholder="Nome do animal" id="email" required ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'
-									/>
 								</div>
 							</div>
 						</div>

@@ -1,4 +1,4 @@
-var app = angular.module("AdoteUmPet", ["ngRoute", "angularUtils.directives.dirPagination", "ng-mfb", "ngMask"]);
+var app = angular.module("AdoteUmPet", ["ngRoute", "angularUtils.directives.dirPagination", "ng-mfb"]);
 app.controller("AdoteUmPetCTRL", function($scope){
         $scope.criarCadastro = function(user){
                 console.log(user);

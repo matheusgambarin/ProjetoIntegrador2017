@@ -1,7 +1,5 @@
 <!-- CSS da página -->
 <link rel="stylesheet" type="text/css" href="view/sAnuncios/sAnuncios.css">
-<link rel="stylesheet" href="../plugins/jQuery/jquery-2.2.3.min.js">
-<link rel="stylesheet" href="../plugins/jQuery/jquery.mask.js">
 <!--Inicio do código -->
 <div class="container">
 	<div class="panel panel-default">
@@ -37,7 +35,7 @@
 						<div class="col-md-4">
 							{{anuncios.dataAnuncio}}
 						</div>
-						<div class="col-md-4" data-toggle="modal" data-target="#modalAdocao" style="cursor:pointer">
+						<div class="col-md-4" data-toggle="modal" data-target="#modalAdocao" style="cursor:pointer" ng-click="carregaDetalhes(this.anuncios)">
 							<p>Ver Mais
 								<span class="glyphicon glyphicon-chevron-down"></span>
 							</p>
@@ -73,11 +71,15 @@
 						<div class="col-md-7">
 							<div class="form-group">
 								<label for="nomeAnimal">Nome do produto</label>
-								<input type="text" class="form-control" placeholder="Nome do animal" id="nomeAnimal" />
+								<input type="text" class="form-control"ng-model="detalhes.nomeAnuncio" placeholder="Nome do animal" id="nomeAnimal" />
 							</div>
 							<div class="form-group">
 								<label for="raca">Onde Encontrar</label>
 								<input type="text" class="form-control" placeholder="Raça" id="raca" />
+							</div>
+							<div class="form-group" ng-show="detalhes.tipo == 0">
+								<label for="preco">Preço</label>
+								<input type="text" class="form-control" placeholder="Preço do animal" id="preco" />
 							</div>
 						</div>
 						<div class="col-md-12" style="margin-top: 10px;">
