@@ -1,7 +1,8 @@
 <!-- CSS da página -->
 <link rel="stylesheet" type="text/css" href="view/adocao/adote.css">
 <!--Inicio do código -->
-<div class="container">
+<div class="container" ng-init="init()">
+	<div class="row">
 	<div class="panel panel-default">
 		<div class="min-height-0 panel-default">
 			<div class="panel-heading headingCss">
@@ -26,17 +27,17 @@
 			</div>
 		</div>
 		<div class="panel-body">
-			<div dir-paginate="adote in adoteView | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
+			<div dir-paginate="adote in animaisAdocao | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
 				<div class="col-md-3">
 					<div id="columnAlign">
-						<img class="card-img-top img-thumbnail imglogo" ng-src={{adote.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdicionar">
+						<img class="card-img-top img-thumbnail imglogo" src={{adote.url}} alt="" data-toggle="modal" data-target="#modalAdocao">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-5" style="margin-top: 5px;">
 									{{adote.nome}}
 								</div>
 								<div class="col-md-7" style="margin-top: 5px;">
-									{{adote.cidade}} - {{adote.estado}}
+									{{adote.usuario.endereco.cidade}} - {{adote.usuario.endereco.uf}}
 								</div>
 							</div>
 						</div>
@@ -47,6 +48,7 @@
 		<div class="row text-center">
 			<dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
 		</div>
+	</div>
 	</div>
 </div>
 
@@ -70,8 +72,9 @@
 						<div class="col-md-12">
 							<div class="col-md-5">
 								<!-- Required -->
-								<img class="card-img-top img-thumbnail imgModal" ng-src="{{photoUrl}}" ng-model="adocao.Image" alt="">
-								<input type="file" accept="image/*" class="form-control" ng-model="adocao.fotoUrl" />
+								<input type="file" fileread="uploadme" />
+
+								<img  style="margin-top:20px;" src="{{uploadme}}">
 
 							</div>
 							<div class="col-md-7">
