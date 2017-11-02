@@ -1,7 +1,13 @@
 var app = angular.module("AdoteUmPet", ["ngRoute", "angularUtils.directives.dirPagination", "ng-mfb"]);
-app.controller("AdoteUmPetCTRL", function($scope){
+app.controller("AdoteUmPetCTRL", function($scope, $http){
+
+    var url = "http://localhost:9090/usuario/";
+
         $scope.criarCadastro = function(user){
-                console.log(user);
+            user.enderecoid = 1;
+            $http.post(url, user).then(function(response) {
+ console.log(response);
+            });
         }
 
         $scope.logar = function(login){
