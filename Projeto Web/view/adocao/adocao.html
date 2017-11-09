@@ -1,9 +1,8 @@
 <!-- CSS da página -->
 <link rel="stylesheet" type="text/css" href="view/adocao/adote.css">
-<link rel="stylesheet" href="../plugins/jQuery/jquery-2.2.3.min.js">
-<link rel="stylesheet" href="../plugins/jQuery/jquery.mask.js">
 <!--Inicio do código -->
-<div class="container">
+<div class="container" ng-init="init()">
+	<div class="row">
 	<div class="panel panel-default">
 		<div class="min-height-0 panel-default">
 			<div class="panel-heading headingCss">
@@ -28,17 +27,17 @@
 			</div>
 		</div>
 		<div class="panel-body">
-			<div dir-paginate="adote in adoteView | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
+			<div dir-paginate="adote in animaisAdocao | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
 				<div class="col-md-3">
 					<div id="columnAlign">
-						<img class="card-img-top img-thumbnail imglogo" src={{adote.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdocao">
+						<img class="card-img-top img-thumbnail imglogo" src={{adote.url}} alt="" data-toggle="modal" data-target="#modalAdocao">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-5" style="margin-top: 5px;">
 									{{adote.nome}}
 								</div>
 								<div class="col-md-7" style="margin-top: 5px;">
-									{{adote.cidade}} - {{adote.estado}}
+									{{adote.usuario.endereco.cidade}} - {{adote.usuario.endereco.uf}}
 								</div>
 							</div>
 						</div>
@@ -49,6 +48,7 @@
 		<div class="row text-center">
 			<dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
 		</div>
+	</div>
 	</div>
 </div>
 
@@ -127,9 +127,8 @@
 						<div class="col-md-12">
 							<div class="col-md-5">
 								<!-- Required -->
-								<img class="card-img-top img-thumbnail imgModal" ng-src="{{photoUrl}}" ng-model="adocao.Image" alt="">
-								<input type="file" accept="image/*" class="form-control" ng-model="adocao.fotoUrl" />
-
+								<img  style="margin-top:20px;" src="{{uploadme}}" class="img-responsive img-thumbnail imgAdocao">
+								<input type="file" fileread="uploadme" />
 							</div>
 							<div class="col-md-7">
 								<div class="form-group">
@@ -150,18 +149,6 @@
 										<option value="Macho">Macho</option>
 										<option value="Fêmea">Fêmea</option>
 									</select>
-								</div>
-								<div class="form-group">
-									<label for="telefone">Telefone contato</label>
-									<span style="color:red">*</span>
-									<input type="text" ng-model="adocao.telefone" required mask="(44) 9 9999-9999" class="form-control" placeholder="Telefone para contato"
-									 id="telefone" />
-								</div>
-								<div class="form-group">
-									<label for="email">E-mail</label>
-									<span style="color:red">*</span>
-									<input type="text" ng-model="adocao.email" class="form-control" placeholder="Nome do animal" id="email" required ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i'
-									/>
 								</div>
 							</div>
 						</div>
