@@ -17,9 +17,10 @@ app.controller("AdoteUmPetCTRL", function ($scope, $http) {
 
 app.config(function ($routeProvider, $locationProvider) {
         $routeProvider
-                //     .when("/", {
-                //         templateUrl : "index.html"
-                //     })
+                .when("/", {
+                        templateUrl : "view/inicial/inicial.html",
+                        controller: "inicialCTRL"
+                })
                 .when("/adocao", {
                         templateUrl: "view/adocao/adocao.html",
                         controller: "adoteCTRL"

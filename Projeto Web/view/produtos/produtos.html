@@ -117,7 +117,85 @@
 				</div>
 			</div>
 			<div class="modal-footer" style="margin-top: 10px;">
-				<button type="button" class="btn btn-success" data-dismiss="modal">Voltar</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<nav mfb-menu position="br" class="btnFloat" effect="zoomin" label="Adicionar produtos" active-icon="ion-paper-airplane"
+ resting-icon="ion-plus-round" toggling-method="click" data-toggle="modal" data-target="#modalAdicionar"></nav>
+
+<!-- Modal adicionar produtos -->
+<div id="modalAdicionar" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<!-- Conteudo do modal-->
+		<div class="modal-content">
+			<div class="modal-header headingCss" style="padding-bottom: 5px;">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<p class="wicked">
+					<img src="../../dist/img/pata_de_felino.png" width="20px;" height="20px;" /> Detalhes do produto
+				</p>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<form name="ProdutosForm">
+						<div class="col-md-12">
+							<div class="col-md-5">
+								<!-- Required -->
+								<img class="card-img-top img-thumbnail imgModal" ng-src="{{photoUrl}}" ng-model="vendas.Image" alt="">
+								<input type="file" accept="image/*" class="form-control" ng-model="vendas.fotoUrl" />
+
+							</div>
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="nomeAnimal">Nome do produto</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="produto.nome" required class="form-control" placeholder="Nome do produto" id="nomeAnimal" />
+								</div>
+								<div class="form-group">
+									<label for="preco">Preço do produto</label>
+									<span style="color:red">*</span>
+									<input type="number" ng-model="produto.preco" required class="form-control" placeholder="Preço do produto" id="preco" />
+								</div>
+								<div class="form-group">
+									<label for="endereco">Endereço</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="produto.endereco" class="form-control" required placeholder="Endereço do estabelecimento" id="endereco"
+									/>
+								</div>
+								<div class="form-group">
+									<label for="cidade">Cidade</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="produto.cidade" class="form-control" required placeholder="Cidade" id="cidade" />
+								</div>
+								<div class="form-group">
+									<label for="estado">Estado</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="produto.estado" class="form-control" required placeholder="Estado" id="estado" />
+								</div>
+								<div class="form-group">
+									<label for="telefone">Telefone contato</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="produto.telefone" required mask="(44) 9 9999-9999" class="form-control" placeholder="Telefone para contato" id="telefone"
+									/>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="col-md-12">
+								<label for="comentarios">Como usar</label>
+								<textarea ng-model="produto.comentario" class="form-control" rows="5" id="comentarios"></textarea>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-success" ng-disabled="ProdutosForm.$invalid" ng-click="salvarAnuncio(produto)">Criar anúncio</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
 			</div>
 		</div>
 	</div>
