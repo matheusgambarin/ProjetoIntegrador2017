@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../plugins/jQuery/jquery-2.2.3.min.js">
 <link rel="stylesheet" href="../plugins/jQuery/jquery.mask.js">
 <!--Inicio do código -->
-<div class="container">
+<div class="container" ng-init="init()">
     <div class="panel panel-default">
         <div class="min-height-0 panel-default">
             <div class="panel-heading headingCss">
@@ -17,17 +17,17 @@
             </div>
         </div>
         <div class="panel-body">
-            <div dir-paginate="adote in adoteView | filter: orderBy:sortKey:reverse|itemsPerPage: 4">
+            <div dir-paginate="animal in animais | filter: orderBy:sortKey:reverse|itemsPerPage: 4">
                 <div class="col-md-3">
                     <div id="columnAlign">
-                        <img class="card-img-top img-thumbnail imglogo" src={{adote.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdocao">
+                        <img class="card-img-top img-thumbnail imglogo" src="images/{{animal.fotoUrl}}">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-5" style="margin-top: 5px;">
-                                    {{adote.nome}}
+                                    {{animal.nome}}
                                 </div>
                                 <div class="col-md-7" style="margin-top: 5px;">
-                                    {{adote.cidade}} - {{adote.estado}}
+                                    {{animal.cidade}} - {{animal.estado}}
                                 </div>
                             </div>
                         </div>
@@ -36,77 +36,5 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="min-height-0 panel-default">
-            <div class="panel-heading headingCss">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h4 class="wicked">
-                            <img src="../../dist/img/pata_de_felino.png" width="30px;" height="30px;" /> Achados e Perdidos 
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="panel-body">
-            <div dir-paginate="achados in achadosView | filter: orderBy:sortKey:reverse|itemsPerPage: 4">
-                <div class="col-md-3">
-                    <div id="columnAlign">
-                        <img class="card-img-top img-thumbnail imglogo" src={{achados.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdocao">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-5" style="margin-top: 5px;">
-                                    {{achados.nome}}
-                                </div>
-                                <div class="col-md-7" style="margin-top: 5px;">
-                                    {{achados.cidade}} - {{achados.estado}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-     <div class="panel panel-default">
-        <div class="min-height-0 panel-default">
-            <div class="panel-heading headingCss">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h4 class="wicked">
-                            <img src="../../dist/img/pata_de_felino.png" width="30px;" height="30px;" /> Animais a vendas
-                        </h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="panel-body">
-            <div dir-paginate="venda in vendaView | filter: orderBy:sortKey:reverse|itemsPerPage: 4">
-                <div class="col-md-3">
-                    <div id="columnAlign">
-                        <img class="card-img-top img-thumbnail imglogo" src={{venda.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdocao">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-5" style="margin-top: 5px;">
-                                    {{venda.nome}}
-                                </div>
-                                <div class="col-md-7" style="margin-top: 5px;">
-                                    {{venda.cidade}} - {{venda.estado}}
-                                </div>
-                            </div>
-                            <div class="row">
-								<div class="col-md-5" style="margin-top: 5px;">
-									{{venda.preco | currency}}
-									<div ng-show="!venda.preco">
-										R$: 10,00
-									</div>
-								</div>
-							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
     </div>
 </div>

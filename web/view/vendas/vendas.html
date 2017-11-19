@@ -1,7 +1,7 @@
 <!-- CSS da página -->
 <link rel="stylesheet" type="text/css" href="view/vendas/vendas.css">
 <!--Inicio do código -->
-<div class="container">
+<div class="container" ng-init="init()">
 	<div class="panel panel-default">
 		<div class="min-height-0 panel-default">
 			<div class="panel-heading headingCss">
@@ -13,9 +13,9 @@
 					</div>
 					<div class="col-md-4">
 						<div class="input-group" style="margin-top: 10px;">
-							<input type="text" class="form-control roundedBar" ng-model="busca" placeholder="Busque seu anúncio aqui...">
+							<input type="text" class="form-control roundedBar" ng-model="busca" placeholder="Busque seu anúncio aqui..." onchange="angular.element(this).scope().buscarAnimal(this)">
 							<span class="input-group-btn">
-								<button class="btn btn-success" type="button">
+								<button class="btn btn-success" type="button" ng-click="buscarAnimal()">
 									<span class="glyphicon glyphicon-search"></span>
 									Buscar
 								</button>
@@ -29,22 +29,19 @@
 			<div dir-paginate="vendas in vendaView | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
 				<div class="col-md-3">
 					<div id="columnAlign">
-						<img class="card-img-top img-thumbnail imglogo" ng-src={{vendas.fotoUrl}} alt="" data-toggle="modal" data-target="#modalAdicionar">
+						<img class="card-img-top img-thumbnail imglogo" ng-src="images/{{vendas.url}}"" alt="" data-toggle="modal" data-target="#modalAdicionar">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-5" style="margin-top: 5px;">
 									{{vendas.nome}}
 								</div>
 								<div class="col-md-7" style="margin-top: 5px;">
-									{{vendas.cidade}} - {{vendas.estado}}
+									{{vendas.usuario.endereco.cidade}} - {{vendas.usuario.endereco.uf}}
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-5" style="margin-top: 5px;">
-									{{vendas.preco | currency}}
-									<div ng-show="!vendas.preco">
-										R$: 10,00
-									</div>
+									{{vendas.preco | currency:'R$':2}}
 								</div>
 							</div>
 						</div>
@@ -139,8 +136,8 @@
 						<div class="col-md-12">
 							<div class="col-md-5">
 								<!-- Required -->
-								<img class="card-img-top img-thumbnail imgModal" ng-src="{{photoUrl}}" ng-model="vendas.Image" alt="">
-								<input type="file" accept="image/*" class="form-control" ng-model="vendas.fotoUrl" />
+								<img  style="margin-top:20px;" src="{{uploadme}}" class="img-responsive img-thumbnail imgAdocao">
+								<input style="margin-top:20px;" type="file" fileread="uploadme" onchange="angular.element(this).scope().fileName(this)"/>
 
 							</div>
 							<div class="col-md-7">

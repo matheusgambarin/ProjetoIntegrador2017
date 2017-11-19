@@ -5,11 +5,24 @@ app.controller("adoteCTRL", function ($scope, $http, $location) {
 	$scope.photoUrl = "http://placehold.it/900x900";
 	$scope.animaisAdocao = [];
 	$scope.uploadme;
+	$scope.file;
+	$scope.busca;
+
+	$scope.fileName= function(element) {
+	   $scope.$apply(function($scope) {
+	      $scope.file = element.files[0];
+	   });
+	};
+
+	$scope.buscarAnimal = function () {
+		$http.get(url + "adocao?filter=" + $scope.busca).then(function (response) {
+			$scope.animaisAdocao = response.data;
+		});
+	}
 
 
 	$scope.init = function () {
 		$http.get(url + "adocao?filter=").then(function (response) {
-			console.log(response.data);
 			$scope.animaisAdocao = response.data;
 		});
 	}
@@ -22,7 +35,7 @@ app.controller("adoteCTRL", function ($scope, $http, $location) {
 			array.push(binary.charCodeAt(i));
 		}
 		return new Blob([new Uint8Array(array)], {
-			type: mimeString
+			type: mimeString,
 		});
 	}
 
@@ -36,8 +49,8 @@ app.controller("adoteCTRL", function ($scope, $http, $location) {
 		adocao.usuarioid = 1;
 		adocao.tipo = 1;
 		var fd = new FormData();
-		var imgBlob = dataURItoBlob($scope.uploadme);
-		fd.append("file", imgBlob);
+		fd.append("file", $scope.file);
+
 		$http.post(url + "/imagem", fd, {
 			transformRequest: angular.identity,
 			headers: {
@@ -45,7 +58,7 @@ app.controller("adoteCTRL", function ($scope, $http, $location) {
 			}
 		}
 		).then(function (response) {
-			console.log(response);
+			adocao.url = response.data.url
 			$http.post(url, adocao).then(function (response) {
 				window.location.reload();
 			});

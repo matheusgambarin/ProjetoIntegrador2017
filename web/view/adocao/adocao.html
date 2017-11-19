@@ -14,9 +14,9 @@
 					</div>
 					<div class="col-md-4">
 						<div class="input-group" style="margin-top: 10px;">
-							<input type="text" class="form-control roundedBar" ng-model="busca" placeholder="Busque seu anúncio aqui...">
+							<input type="text" class="form-control roundedBar" ng-model="busca" placeholder="Busque seu anúncio aqui..." onchange="angular.element(this).scope().buscarAnimal(this)">
 							<span class="input-group-btn">
-								<button class="btn btn-success" type="button">
+								<button class="btn btn-success" type="button" ng-click="buscarAnimal()">
 									<span class="glyphicon glyphicon-search"></span>
 									Buscar
 								</button>
@@ -30,7 +30,7 @@
 			<div dir-paginate="adote in animaisAdocao | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
 				<div class="col-md-3">
 					<div id="columnAlign">
-						<img class="card-img-top img-thumbnail imglogo" src={{adote.url}} alt="" data-toggle="modal" data-target="#modalAdocao">
+						<img class="card-img-top img-thumbnail imglogo" src="images/{{adote.url}}" alt="" data-toggle="modal" data-target="#modalAdocao">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-5" style="margin-top: 5px;">
@@ -127,8 +127,9 @@
 						<div class="col-md-12">
 							<div class="col-md-5">
 								<!-- Required -->
-								<img  style="margin-top:20px;" src="{{uploadme}}" class="img-responsive img-thumbnail imgAdocao">
-								<input type="file" fileread="uploadme" ng-file-select="onFileSelect($files)" />
+								<img  style="margin-top:20px;" src="{{uploadme}}" class="img-responsive img-thumbnail imgAdocao" >
+								<input style="margin-top:20px;" type="file" fileread="uploadme" onchange="angular.element(this).scope().fileName(this)" required/>
+								
 							</div>
 							<div class="col-md-7">
 								<div class="form-group">
