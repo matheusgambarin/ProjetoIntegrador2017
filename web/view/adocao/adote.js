@@ -8,11 +8,15 @@ app.controller("adoteCTRL", function ($scope, $http, $location) {
 	$scope.file;
 	$scope.busca;
 
-	$scope.fileName= function(element) {
-	   $scope.$apply(function($scope) {
-	      $scope.file = element.files[0];
-	   });
+	$scope.fileName = function (element) {
+		$scope.$apply(function ($scope) {
+			$scope.file = element.files[0];
+		});
 	};
+
+	$scope.carregardetalhes = function (adote) {
+		$scope.animal = adote;
+	}
 
 	$scope.buscarAnimal = function () {
 		$http.get(url + "adocao?filter=" + $scope.busca).then(function (response) {

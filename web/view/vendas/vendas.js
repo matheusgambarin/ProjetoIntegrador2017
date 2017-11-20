@@ -19,7 +19,10 @@ app.controller("vendasCTRL", function($scope, $http){
 			$scope.vendaView = response.data;
 		});
 	}
-
+	
+	$scope.carregardetalhes = function (adote) {
+		$scope.animal = adote;
+	}
 
 	$scope.init = function () {
 		$http.get(url + "venda?filter=").then(function (response) {

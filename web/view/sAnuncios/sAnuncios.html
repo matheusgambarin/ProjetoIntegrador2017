@@ -1,7 +1,7 @@
 <!-- CSS da página -->
 <link rel="stylesheet" type="text/css" href="view/sAnuncios/sAnuncios.css">
 <!--Inicio do código -->
-<div class="container">
+<div class="container" ng-init="init()">
 	<div class="panel panel-default">
 		<div class="min-height-0 panel-default">
 			<div class="panel-heading headingCss">
@@ -30,10 +30,10 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-4">
-							{{anuncios.nomeAnuncio}}
+							{{anuncios.nome}} - {{anuncios.raca}}
 						</div>
 						<div class="col-md-4">
-							{{anuncios.dataAnuncio}}
+							{{anuncios.dataCadastro}}
 						</div>
 						<div class="col-md-4" data-toggle="modal" data-target="#modalAdocao" style="cursor:pointer" ng-click="carregaDetalhes(this.anuncios)">
 							<p>Ver Mais
@@ -59,40 +59,57 @@
 			<div class="modal-header headingCss" style="padding-bottom: 5px;">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<p class="wicked">
-					<img src="../../dist/img/pata_de_felino.png" width="20px;" height="20px;" /> Detalhes do produto
+					<img src="../../dist/img/pata_de_felino.png" width="20px;" height="20px;" /> Detalhes do animal
 				</p>
 			</div>
 			<div class="modal-body">
 				<div class="row">
-					<div class="col-md-12">
-						<div class="col-md-5">
-							<img class="card-img-top img-thumbnail imgModal" src="http://placehold.it/900x900" alt="">
+					<form name="achadoForm">
+						<div class="col-md-12">
+							<div class="col-md-5">
+								<!-- Required -->
+								<img  style="margin-top:20px;" src="images/{{detalhes.url}}" class="img-responsive img-thumbnail imgAdocao">
+							</div>
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="nomeAnimal">Nome do animal</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="detalhes.nome" required class="form-control" placeholder="Nome do animal" id="nomeAnimal" />
+								</div>
+								<div class="form-group">
+									<label for="raca">Raça</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="detalhes.raca" required class="form-control" placeholder="Raça" id="raca" />
+								</div>
+								<div class="form-group" ng-if="detalhes.preco">
+									<label for="raca">Preço</label>
+									<span style="color:red">*</span>
+									<input type="text" ng-model="detalhes.preco" required class="form-control" placeholder="RPreçoaça" id="preco" />
+								</div>
+								<div class="form-group">
+									<label for="sexo">Sexo</label>
+									<span style="color:red">*</span>
+									<select ng-model="detalhes.sexo" required class="form-control">
+										<option value="" selected>Selecione o sexo do animal</option>
+										<option value="Macho">Macho</option>
+										<option value="Fêmea">Fêmea</option>
+									</select>
+								</div>
+							</div>
 						</div>
-						<div class="col-md-7">
-							<div class="form-group">
-								<label for="nomeAnimal">Nome do produto</label>
-								<input type="text" class="form-control"ng-model="detalhes.nomeAnuncio" placeholder="Nome do animal" id="nomeAnimal" />
-							</div>
-							<div class="form-group">
-								<label for="raca">Onde Encontrar</label>
-								<input type="text" class="form-control" placeholder="Raça" id="raca" />
-							</div>
-							<div class="form-group" ng-show="detalhes.tipo == 0">
-								<label for="preco">Preço</label>
-								<input type="text" class="form-control" placeholder="Preço do animal" id="preco" />
-							</div>
-						</div>
-						<div class="col-md-12" style="margin-top: 10px;">
+						<div class="col-md-12">
 							<div class="col-md-12">
-								<label for="comentarios">Como usar</label>
-								<textarea class="form-control" rows="5" id="comentarios"></textarea>
+								<label for="comentarios">Comentários adicionais</label>
+								<textarea ng-model="detalhes.comentario" class="form-control" rows="5" id="comentarios"></textarea>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
-				<div class="modal-footer" style="margin-top: 10px;">
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-success" ng-disabled="achadoForm.$invalid" ng-click="alterarAnuncio(detalhes)">Alterar anúncio</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>

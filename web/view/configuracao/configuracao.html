@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="view/configuracao/configuracao.css">
 <!--Inicio do código -->
-<div class="container">
+<div class="container" ng-init="init()">
     <div class="panel panel-default">
         <div class="min-height-0 panel-default">
             <div class="panel-heading headingCss">
@@ -9,7 +9,7 @@
                 </h4>
             </div>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" ng-if="configuracaoView">
             <div class="row">
                 <form name="usuarioForm">
                     <div class="col-md-12">
@@ -34,10 +34,7 @@
                             <div class="form-group">
                                 <label for="senha">Senha</label>
                                 <div class="input-group">
-                                    <input type="password" class="form-control" required ng-disabled="destravaSenha == false" ng-model="senha" placeholder="Insira sua senha">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-success" type="button" ng-class="destravaSenha == true ? 'btn-danger': 'btn-success'" ng-click="mudarSenha()">{{label}}</button>
-                                    </span>
+                                    <input type="password" class="form-control" required ng-disabled="destravaSenha == false" ng-model="configuracaoView.senha" placeholder="Insira sua senha">
                                 </div>
                             </div>
                             <div class="form-group" ng-hide="destravaSenha == false">
@@ -50,48 +47,40 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="rua">Rua</label>
-                                    <input type="text" ng-model="configuracaoView.rua" required class="form-control" placeholder="Nome da rua que você mora"
+                                    <input type="text" ng-model="configuracaoView.endereco.rua" required class="form-control" placeholder="Nome da rua que você mora"
                                         id="rua" />
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="numero">Número</label>
-                                    <input type="numero" ng-model="configuracaoView.numero" required class="form-control" placeholder="Número da sua residência"
+                                    <input type="numero" ng-model="configuracaoView.endereco.numero" required class="form-control" placeholder="Número da sua residência"
                                         id="numero" />
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="complemento">Complemento</label>
-                                    <input type="text" ng-model="configuracaoView.numero" class="form-control" placeholder="Complemento" id="numero" />
+                                    <input type="text" ng-model="configuracaoView.endereco.complemento" class="form-control" placeholder="Complemento" id="numero" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="cidade">Cidade</label>
-                                    <input type="text" ng-model="configuracaoView.cidade" required class="form-control" placeholder="Cidade que você mora" id="cidade"
+                                    <input type="text" ng-model="configuracaoView.endereco.cidade" required class="form-control" placeholder="Cidade que você mora" id="cidade"
                                     />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="estado">Estado</label>
-                                    <input type="text" ng-model="configuracaoView.estado" required class="form-control" placeholder="Estado que fica sua cidade"
+                                    <input type="text" ng-model="configuracaoView.endereco.uf" required class="form-control" placeholder="Estado que fica sua cidade"
                                         id="estado" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-        <!-- Criar função salvar anúncio -->
-        <div class="panel-footer">
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success" ng-disabled="usuarioForm.$invalid || (destravaSenha == true && senha != novamente)"
-                    data-toggle="modal" data-target="#modalAlterar" ng-click="alterarDadosPessoais()">Salvar alterações</button>
-                <button type="button" class="btn btn-default">Voltar</button>
             </div>
         </div>
     </div>

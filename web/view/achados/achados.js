@@ -14,6 +14,10 @@ app.controller("achadosCTRL", function($scope, $http){
 	   });
 	};
 
+	$scope.carregardetalhes = function (adote) {
+		$scope.animal = adote;
+	}
+	
 	$scope.buscarAnimal = function () {
 		console.log('oi');
 		$http.get(url + "perdido?filter=" + $scope.busca).then(function (response) {

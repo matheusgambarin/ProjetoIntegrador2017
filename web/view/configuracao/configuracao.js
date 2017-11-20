@@ -1,12 +1,11 @@
 app.controller("configuracaoCTRL", function ($scope, $http) {
 
+
+    var url = "http://localhost:9090/usuario/";
+
     $scope.destravaSenha = false;
     $scope.label = "Mudar a senha";
-    $scope.configuracaoView = {
-        nome: "Finin", email: "finin@gmail.com", telefone: "44999857452", senha: "123456qwe", rua:"Das lamentações", numero: 661, complemento: "A", cidade: "Maringá" , estado: "Paraná" ,fotoUrl: "http://placehold.it/350x350"
-    }
-
-    $scope.senha = $scope.configuracaoView.senha;
+    $scope.configuracaoView;
     $scope.mudarSenha = function(){
         if($scope.destravaSenha == false){
             $scope.destravaSenha = true;
@@ -17,6 +16,12 @@ app.controller("configuracaoCTRL", function ($scope, $http) {
             $scope.senha = $scope.configuracaoView.senha;
             $scope.label = "Mudar a senha";
         }
+    }
+
+    $scope.init = function () {
+        $http.get(url + "1").then(function (response) {
+			$scope.configuracaoView = response.data;
+		});
     }
     
     $scope.alterarDadosPessoais = function(){
