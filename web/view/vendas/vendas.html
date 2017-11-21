@@ -29,7 +29,7 @@
 			<div dir-paginate="vendas in vendaView | filter: orderBy:sortKey:reverse|itemsPerPage: 12">
 				<div class="col-md-3">
 					<div id="columnAlign">
-						<img class="card-img-top img-thumbnail imglogo" ng-src="images/{{vendas.url}}"" alt="" data-toggle="modal" data-target="#modalAdocao" ng-click="carregardetalhes(vendas)">
+						<img class="card-img-top img-thumbnail imglogo" ng-src="images/{{vendas.url}}" alt="" data-toggle="modal" data-target="#modalAdocao" ng-click="carregardetalhes(vendas)">
 						<div class="card-body">
 							<div class="row">
 								<div class="col-md-5" style="margin-top: 5px;">
@@ -72,7 +72,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-5">
-							<img class="card-img-top img-thumbnail imgModal" src="http://placehold.it/900x900" alt="">
+							<img width="300px;" height="250px;" ng-src="images/{{animal.url}}" alt="">
 						</div>
 						<div class="col-md-7">
 							<div class="form-group">
@@ -128,8 +128,10 @@
 						<div class="col-md-12">
 							<div class="col-md-5">
 								<!-- Required -->
-								<img  style="margin-top:20px;" src="{{uploadme}}" class="img-responsive img-thumbnail imgAdocao">
-								<input style="margin-top:20px;" type="file" fileread="uploadme" onchange="angular.element(this).scope().fileName(this)"/>
+								<div class="form-group">
+									<input style="margin-bottom:20px;" type="file" fileread="uploadme" onchange="angular.element(this).scope().fileName(this)" required/>
+									<img  style="margin-bottom:20px;" src="{{uploadme}}" ng-if="uploadme" width="300px;" height="250px;">
+								</div>
 
 							</div>
 							<div class="col-md-7">
@@ -169,7 +171,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-success" ng-disabled="vendasForm.$invalid" ng-click="salvarAnuncio(vendas)">Criar anúncio</button>
+				<button type="submit" class="btn btn-success" ng-disabled="vendasForm.$invalid && !uploadme" ng-click="salvarAnuncio(vendas)">Criar anúncio</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
 			</div>
 		</div>

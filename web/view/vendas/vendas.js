@@ -4,7 +4,7 @@ app.controller("vendasCTRL", function($scope, $http){
 
 	$scope.photoUrl = "http://placehold.it/900x900";
 	$scope.animaisAdocao = [];
-	$scope.uploadme;
+	$scope.uploadme = null;
 	$scope.file;
 	$scope.busca;
 

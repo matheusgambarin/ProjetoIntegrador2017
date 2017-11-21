@@ -8,8 +8,14 @@ app.controller("inicialCTRL", function($scope, $http){
 	$scope.busca;
 
 	$scope.init = function () {
-		$http.get(url + "?filter=").then(function (response) {
-			$scope.aimais = response.data;
+		$http.get(url + "venda?filter=").then(function (response) {
+			$scope.vendaView = response.data;
+		});
+		$http.get(url + "perdido?filter=").then(function (response) {
+			$scope.achadosView = response.data;
+		});
+		$http.get(url + "adocao?filter=").then(function (response) {
+			$scope.adoteView = response.data;
 		});
 	}
 

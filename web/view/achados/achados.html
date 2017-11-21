@@ -65,7 +65,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="col-md-5">
-							<img class="card-img-top img-thumbnail imgModal" src="http://placehold.it/900x900" alt="">
+							<img  width="300px;" height="250px;" ng-src="images/{{animal.url}}" alt="">
 						</div>
 						<div class="col-md-7">
 							<div class="form-group">
@@ -117,8 +117,9 @@
 						<div class="col-md-12">
 							<div class="col-md-5">
 								<!-- Required -->
-								<img  style="margin-top:20px;" src="{{uploadme}}" class="img-responsive img-thumbnail imgAdocao">
-								<input style="margin-top:20px;" type="file" fileread="uploadme" onchange="angular.element(this).scope().fileName(this)"/>
+								<input style="margin-bottom:20px;" type="file" fileread="uploadme" onchange="angular.element(this).scope().fileName(this)"/>
+								<img  style="margin-bottom:20px;" src="{{uploadme}}" ng-if="uploadme" width="300px;" height="250px;">
+								
 
 							</div>
 							<div class="col-md-7">
